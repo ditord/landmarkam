@@ -6,9 +6,7 @@
 }
 
 body {
-    /* Required: Black body background */
     background-color: #000000;
-    /* Required: White text color */
     color: #FFFFFF;
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -27,7 +25,7 @@ a {
 }
 
 a:hover {
-    color: #FF4500; /* A slightly lighter red on hover */
+    color: #FF4500;
 }
 
 /* Button Styling (Required: Red buttons) */
@@ -43,7 +41,6 @@ button {
 
 /* Primary Red Button */
 .btn-primary, .btn-book {
-    /* Required: Red button background */
     background-color: #D20000; 
     color: #FFFFFF;
 }
@@ -52,56 +49,106 @@ button {
     background-color: #FF0000;
 }
 
-/* --- Header Styling --- */
+/* ---------------------------------------------------- */
+/* --- HEADER STYLING (NEW LAYOUT) --- */
+/* ---------------------------------------------------- */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black for header */
+    background-color: rgba(0, 0, 0, 0.9); 
+    border-bottom: 1px solid #333;
+    position: relative; /* Needed for absolute positioning of nav on mobile */
+}
+
+/* 1. LOGO STYLING (Fixed Size and Centered Positioning) */
+.logo {
+    /* To place the logo roughly in the center of the available space */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20; /* Keep it above the button and menu */
+}
+
+.logo img {
+    /* Required size: 142x80 px */
+    width: 142px;
+    height: 80px;
+    object-fit: contain; /* Ensures the image scales correctly within the box */
+    display: block;
+}
+
+/* 2. HAMBURGER MENU STYLING (Always visible on the left) */
+.menu-toggle {
+    /* Style the hamburger button itself */
+    background: none;
+    border: none;
+    padding: 10px;
+    z-index: 30; /* Highest z-index to ensure it's clickable */
+    margin-left: -10px; /* Pull it slightly to the edge */
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #FFFFFF;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* 3. NAVIGATION MENU STYLING (Hidden by default, shown via JS/CSS class) */
+.main-nav {
+    /* The nav element is positioned absolutely for the off-canvas/overlay menu effect */
+    position: fixed;
+    top: 0;
+    left: -300px; /* Hide off-screen by default */
+    width: 300px;
+    height: 100vh;
+    background-color: #1a1a1a;
+    padding: 80px 20px 20px;
+    transition: left 0.4s ease;
+    z-index: 25;
+}
+
+.main-nav.open {
+    left: 0; /* Slide in when 'open' class is added by JS */
+}
+
+.main-nav ul {
+    list-style: none;
+    display: block; /* Stack items vertically */
+}
+
+.main-nav ul li {
+    margin: 0;
     border-bottom: 1px solid #333;
 }
 
-.logo {
-    font-size: 1.8em;
-    font-weight: bold;
-    letter-spacing: 2px;
+.main-nav ul li:last-child {
+    border-bottom: none;
 }
 
-header .logo img {
-        width: 50%;
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    /* optional: make logo larger on small screens */
-    @media (max-width: 600px) {
-        header .logo img {
-            width: 70%;
-        }
-    }
-
-nav ul {
-    list-style: none;
-    display: flex;
+.main-nav ul li a {
+    display: block;
+    padding: 15px 0;
+    font-size: 1.2em;
 }
 
-nav ul li {
-    margin-left: 25px;
+/* 4. BUTTON POSITIONING (Always visible on the right) */
+.btn-book {
+    margin-left: auto; /* Pushes the button to the far right */
+    z-index: 10;
 }
 
-nav ul li a {
-    padding: 5px 0;
-    font-size: 1.1em;
-}
-
-/* --- Main Content Styling --- */
+/* ---------------------------------------------------- */
+/* --- MAIN CONTENT STYLING (Unchanged but included) --- */
+/* ---------------------------------------------------- */
 main {
-    min-height: calc(100vh - 250px); /* Ensures content fills screen height */
+    min-height: calc(100vh - 250px);
 }
 
-/* Hero Section (Welcome) */
 .hero-section {
     text-align: center;
     padding: 100px 20px;
@@ -120,9 +167,8 @@ main {
     margin-right: auto;
 }
 
-/* Map Section */
 .map-section {
-    padding: 50px 0;
+    padding: 0px 0;
     text-align: center;
 }
 
@@ -134,18 +180,21 @@ main {
 #google-map-embed-container {
     width: 100%;
     height: 600px; /* Define a fixed height for the map container */
-    background-color: #333; /* Placeholder color if map fails to load */
+    background-color: #333;
     border: 1px solid #D20000;
 }
 
 #google-map-embed-container iframe {
-    /* The iframe inside the container should take up the full space */
+    width: 100%;
+    height: 100%;
     display: block;
 }
 
-/* --- Footer Styling --- */
+/* ---------------------------------------------------- */
+/* --- FOOTER STYLING (Unchanged but included) --- */
+/* ---------------------------------------------------- */
 footer {
-    background-color: #111111; /* Slightly lighter black for contrast */
+    background-color: #111111;
     padding: 40px 50px 20px;
     border-top: 1px solid #333;
 }

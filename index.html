@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,30 +8,46 @@
 </head>
 
 <body>
-    <div class="logo">
-        <img src="images/header_logo.png" alt="Landmark Logo">
-    </div>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-    <button class="btn-book">New Locations</button>
+    <header>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <div class="logo">
+            <img src="images/header_logo.png" alt="Landmark Logo">
+        </div>
+
+        <nav id="main-nav" class="main-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Contact</a></li>
+                </ul>
+        </nav>
+        
+        <button class="btn-book">New Locations</button>
     </header>
 
     <main>
+        <!-- section class="hero-section"> 
         <section class="hero-section">
             <h1>Welcome to Landmark</h1>
             <p>A blend of luxury accommodation and professional business amenities in the heart of Yerevan.</p>
             <button class="btn-primary">Explore Our Facilities</button>
         </section>
 
+        end of hero section -->
+
         <section class="map-section">
+            <!-- Title of the map section
             <h2>Location Map</h2>
+            
+            End the title of the map section -->
             <div id="google-map-embed-container">
                 <iframe src="https://www.google.com/maps/d/embed?mid=1dUDOIkpmRQEHQ135QTWW2oSp9Gh4Qik&ehbc=2E312F"
-                    width="100%" height="50%">
+                    width="100%" height="100%" style="border:0;" 
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
         </section>
@@ -60,5 +75,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
