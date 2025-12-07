@@ -6,10 +6,17 @@
 }
 
 body {
+    /* Required: Black body background */
     background-color: #000000;
+    /* Required: White text color */
     color: #FFFFFF;
     font-family: Arial, sans-serif;
     line-height: 1.6;
+}
+
+/* Optional: Class added by JS to prevent scrolling when the menu is open */
+body.nav-open {
+    overflow: hidden;
 }
 
 /* Headings and Links */
