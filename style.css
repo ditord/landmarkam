@@ -234,7 +234,7 @@ footer {
     max-width: 50%;
     display: block;
     border-bottom: 1px solid #333;
-    padding-bottom: 20px; 
+    padding: 20px; 
 }
 
 .partner-logos {
@@ -259,7 +259,7 @@ footer {
 .contact-info {
     max-width: 300px;
     display: block;
-    padding-top: 20px;
+    padding: 20px;
 }
 
 .contact-info p {
