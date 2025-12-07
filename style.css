@@ -231,9 +231,10 @@ footer {
 
 /* PARTNERS SECTION STYLING */
 .partners-info {
-    max-width: 800px;
-    /* FIX: Ensure partners section is a block that takes up a whole line (on mobile) */
-    display: block; 
+    max-width: 50%;
+    display: block;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px; 
 }
 
 .partner-logos {
@@ -244,7 +245,7 @@ footer {
 }
 
 .partner-logo {
-    max-width: 250px;
+    max-width: 180px;
     height: auto;
     opacity: 0.7;
     transition: opacity 0.3s;
@@ -257,8 +258,8 @@ footer {
 /* CONTACT INFO STYLING (Default for mobile) */
 .contact-info {
     max-width: 300px;
-    /* FIX: Ensure contact info is a block that takes up a whole line (on mobile) */
     display: block;
+    padding-top: 20px;
 }
 
 .contact-info p {
