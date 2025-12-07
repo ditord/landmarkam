@@ -35,6 +35,26 @@ a:hover {
     color: #FF4500;
 }
 
+/* --- Unordered List (UL) Styling --- */
+ul {
+    /* Sets the list marker (bullet) color to match the text */
+    color: #FFFFFF; 
+    
+    /* Slightly increases the list indentation */
+    padding-left: 30px; 
+    
+    /* Ensures list items are stacked as blocks */
+    display: block; 
+    
+    /* Sets the type of marker (default is disc) */
+    list-style-type: disc; 
+}
+
+li {
+    /* Adds a small vertical space between list items */
+    margin-bottom: 5px; 
+}
+
 /* Button Styling (Required: Red buttons) */
 button {
     cursor: pointer;
