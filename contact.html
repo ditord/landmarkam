@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - LandMark.am</title>
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    
+    <meta name="description" content="Get in touch with LandMark.am for inquiries, partnerships, or image removal requests.">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="https://landmark.am" aria-label="LandMark Home">
+            <img src="images/header_logo.png" alt="Landmark.am Logo - Armenian Heritage Map">
+            </a>
+        </div>
+
+        <nav id="main-nav" class="main-nav">
+            <ul>
+                <li><a href="https://landmark.am">Home</a></li> 
+                <li><a href="https://www.patreon.com/landmarkam" target="_blank" rel="noopener noreferrer">Patreon</a></li>
+                <li><a href="/privacy-policy.html">Privacy Policy</a></li> 
+                <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-controls">
+            <button class="btn-book">New Locations</button> 
+
+            <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <h1 class="page-title">Contact Us</h1>
+            <p class="intro-text">Have a question about a location, need commercial licensing, or want to report an issue? Send us a message.</p>
+
+            <div class="contact-grid">
+                
+                <div class="contact-form-container">
+                    <form action="/submit-contact" method="POST" class="contact-form">
+                        
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info-block">
+                    <h2>Get In Touch</h2>
+                    <p>We typically respond to inquiries within 48 hours.</p>
+
+                    <h3>General Inquiries</h3>
+                    <address>
+                        <p>📧 <a href="mailto:info@landmark.am">info@landmark.am</a></p>
+                        <p>📞 <a href="tel:+37493664887">+374 93 66 48 87</a></p>
+                    </address>
+                    
+                    <h3 style="margin-top: 30px;">Mailing Address</h3>
+                    <p>Syunik, Vachagan, K7, Kapan, AM</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-primary">
+            <div class="partners-info">
+                <h3>Our Partners</h3>
+                <div class="partner-logos">
+                    <a href="https://www.landmarkcapital.am" target="_blank" rel="noopener noreferrer">
+                    <img src="partners/lc.png" alt="Landmark Capital Logo" class="partner-logo">
+                    </a>
+                    <a href="https://cfarmenia.am/en/" target="_blank" rel="noopener noreferrer">
+                    <img src="partners/cfa.png" alt="Cinema Foundation of Armenia Logo" class="partner-logo">
+                    </a>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <address>
+                    <p>📍 Syunik, Vachagan, K7, Kapan, AM</p>
+                    <p>📞 <a href="tel:+37493664887">+374 93 66 48 87</a></p>
+                    <p>📧 <a href="mailto:info@landmark.am">info@landmark.am</a></p>
+                </address>
+            </div>
+        </div> 
+        <div class="footer-secondary">
+            <div class="social-links">
+                <h3>Follow Us</h3>
+                <a href="https://www.patreon.com/landmarkam" target="_blank" rel="noopener noreferrer">Patreon</a> |
+                <a href="https://www.instagram.com/k3stalker/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 LandMark.am. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
