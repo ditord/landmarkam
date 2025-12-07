@@ -57,7 +57,7 @@ button {
 }
 
 /* ---------------------------------------------------- */
-/* --- HEADER STYLING (Fixed, Shrinking Header) --- */
+/* --- HEADER STYLING (Logo Left, Controls Right) --- */
 /* ---------------------------------------------------- */
 header {
     display: flex;
@@ -66,32 +66,10 @@ header {
     padding: 20px 50px;
     background-color: rgba(0, 0, 0, 0.9); 
     border-bottom: 1px solid #333;
-    /* CRITICAL: Makes header stick and span full width */
-    position: fixed; 
-    top: 0;
-    width: 100%; 
-    z-index: 100; 
-    transition: padding 0.3s ease, height 0.3s ease; /* Smooth transition for shrinking */
+    position: relative; 
 }
 
-/* SHRINKING HEADER STATE (Applied by JS on scroll) */
-.header-scroll {
-    padding: 10px 50px; /* Reduced vertical padding */
-}
-
-/* Reduce the size of elements inside the shrunk header */
-.header-scroll .logo img {
-    /* ~35% reduction from initial 80px height */
-    width: 92px; 
-    height: 52px;
-}
-
-.header-scroll .btn-book {
-    padding: 8px 15px; 
-    font-size: 0.9em;
-}
-
-/* Header mobile media query */
+/* Your new header media query integrated */
 @media (max-width:660px) {
     header {
         padding: 15px;
@@ -99,11 +77,6 @@ header {
 
     header .btn-book{
         display: none;
-    }
-    
-    /* Ensure mobile padding remains consistent */
-    .header-scroll {
-        padding: 15px;
     }
 }
 
@@ -117,16 +90,14 @@ header {
 /* 1. LOGO STYLING (Fixed Size and Aligned Left) */
 .logo {
     z-index: 20; 
-    transition: all 0.3s ease;
 }
 
 .logo img {
-    /* Required initial size: 142x80 px */
+    /* Required size: 142x80 px */
     width: 142px;
     height: 80px;
     object-fit: contain;
     display: block;
-    transition: all 0.3s ease; 
 }
 
 /* 2. HAMBURGER MENU STYLING (Always visible on the right) */
@@ -146,11 +117,11 @@ header {
     transition: 0.3s;
 }
 
-/* 3. NAVIGATION MENU STYLING (Off-canvas from the RIGHT) */
+/* 3. NAVIGATION MENU STYLING */
 .main-nav {
     position: fixed;
     top: 0;
-    right: -300px; /* Hidden off-screen */
+    right: -300px;
     left: auto;
     width: 300px;
     height: 100vh;
@@ -193,8 +164,6 @@ header {
 /* --- MAIN CONTENT STYLING --- */
 /* ---------------------------------------------------- */
 main {
-    /* CRITICAL: Add padding to push content below the fixed header (approx 120px) */
-    padding-top: 120px; 
     min-height: calc(100vh - 250px);
 }
 
@@ -217,6 +186,7 @@ main {
 }
 
 .map-section {
+    /* Removed padding-top for a cleaner look near the hero section */
     padding: 0px 0; 
     text-align: center;
 }
@@ -240,18 +210,21 @@ main {
 }
 
 /* ---------------------------------------------------- */
-/* --- FOOTER STYLING (Mobile Default / STACKED) --- */
+/* --- FOOTER STYLING (MOBILE DEFAULT / STACKED) --- */
 /* ---------------------------------------------------- */
 footer {
     background-color: #111111;
     padding: 40px 50px 0;
     border-top: 1px solid #333;
+    /* FIX: Ensure footer itself is a simple block container */
     display: block; 
+    overflow: hidden; /* Contains potential floats (though Flexbox is used) */
     width: 100%;
 }
 
 /* Default mobile/stacked layout */
 .footer-primary {
+    /* Set display: block globally for mobile/default stacking */
     display: block; 
     padding-bottom: 30px;
 }
@@ -299,7 +272,8 @@ footer {
     padding-bottom: 20px; 
     border-top: 1px solid #333;
     text-align: center;
-    clear: both; /* Ensures it breaks after the primary section */
+    /* CRITICAL FIX: Ensure it breaks after the primary section */
+    clear: both; 
     width: 100%; 
     display: block;
 }
@@ -332,6 +306,7 @@ footer {
     
     /* ENABLE DESKTOP LAYOUT: Partners (left) and Contact Info (right) */
     .footer-primary {
+        /* This overrides the display: block set above for desktop */
         display: flex;
         justify-content: space-between;
     }
