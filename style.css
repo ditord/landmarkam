@@ -53,40 +53,57 @@ button {
 /* --- HEADER STYLING (NEW LAYOUT) --- */
 /* ---------------------------------------------------- */
 header {
+    /* Use space-between to push the Logo (left) and Controls (right) apart */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
     padding: 20px 50px;
     background-color: rgba(0, 0, 0, 0.9); 
     border-bottom: 1px solid #333;
-    position: relative; /* Needed for absolute positioning of nav on mobile */
+    position: relative; 
 }
 
-/* 1. LOGO STYLING (Fixed Size and Centered Positioning) */
+@media (max-width:660px) {
+    header {
+        padding: 15px;
+    }
+
+    header .btn-book{
+        display: none;
+    }
+}
+
+/* New: Wrapper for the right-side elements */
+.header-controls {
+    display: flex;
+    align-items: center;
+    /* Space between the button and the hamburger */
+    gap: 15px; 
+}
+
+/* 1. LOGO STYLING (Fixed Size and Aligned Left) */
 .logo {
-    /* To place the logo roughly in the center of the available space */
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 20; /* Keep it above the button and menu */
+    /* Remove absolute positioning */
+    position: static;
+    transform: none;
+    z-index: 20; 
 }
 
 .logo img {
     /* Required size: 142x80 px */
     width: 142px;
     height: 80px;
-    object-fit: contain; /* Ensures the image scales correctly within the box */
+    object-fit: contain;
     display: block;
 }
 
-/* 2. HAMBURGER MENU STYLING (Always visible on the left) */
+/* 2. HAMBURGER MENU STYLING (Always visible on the right) */
 .menu-toggle {
-    /* Style the hamburger button itself */
     background: none;
     border: none;
     padding: 10px;
-    z-index: 30; /* Highest z-index to ensure it's clickable */
-    margin-left: -10px; /* Pull it slightly to the edge */
+    z-index: 30;
+    /* Ensure the padding/margin is consistent with the button */
 }
 
 .menu-toggle .bar {
@@ -98,12 +115,11 @@ header {
     transition: 0.3s;
 }
 
-/* 3. NAVIGATION MENU STYLING (Hidden by default, shown via JS/CSS class) */
+/* 3. NAVIGATION MENU STYLING (Off-canvas setup remains the same) */
 .main-nav {
-    /* The nav element is positioned absolutely for the off-canvas/overlay menu effect */
     position: fixed;
     top: 0;
-    left: -300px; /* Hide off-screen by default */
+    left: -300px;
     width: 300px;
     height: 100vh;
     background-color: #1a1a1a;
@@ -113,12 +129,12 @@ header {
 }
 
 .main-nav.open {
-    left: 0; /* Slide in when 'open' class is added by JS */
+    left: 0;
 }
 
 .main-nav ul {
     list-style: none;
-    display: block; /* Stack items vertically */
+    display: block;
 }
 
 .main-nav ul li {
@@ -136,9 +152,9 @@ header {
     font-size: 1.2em;
 }
 
-/* 4. BUTTON POSITIONING (Always visible on the right) */
+/* 4. BUTTON POSITIONING */
 .btn-book {
-    margin-left: auto; /* Pushes the button to the far right */
+    /* Position is handled by the .header-controls wrapper */
     z-index: 10;
 }
 
@@ -203,6 +219,16 @@ footer {
     display: flex;
     justify-content: space-around;
     padding-bottom: 30px;
+}
+
+@media (max-width:660px) {
+    
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 30px;
+}
 }
 
 .contact-info, .social-links {
