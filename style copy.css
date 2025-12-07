@@ -57,9 +57,10 @@ button {
 }
 
 /* ---------------------------------------------------- */
-/* --- HEADER STYLING (Logo Left, Controls Right) --- */
+/* --- HEADER STYLING (NEW LAYOUT) --- */
 /* ---------------------------------------------------- */
 header {
+    /* Use space-between to push the Logo (left) and Controls (right) apart */
     display: flex;
     justify-content: space-between; 
     align-items: center;
@@ -69,7 +70,6 @@ header {
     position: relative; 
 }
 
-/* Your new header media query integrated */
 @media (max-width:660px) {
     header {
         padding: 15px;
@@ -84,11 +84,15 @@ header {
 .header-controls {
     display: flex;
     align-items: center;
+    /* Space between the button and the hamburger */
     gap: 15px; 
 }
 
 /* 1. LOGO STYLING (Fixed Size and Aligned Left) */
 .logo {
+    /* Remove absolute positioning */
+    position: static;
+    transform: none;
     z-index: 20; 
 }
 
@@ -106,6 +110,7 @@ header {
     border: none;
     padding: 10px;
     z-index: 30;
+    /* Ensure the padding/margin is consistent with the button */
 }
 
 .menu-toggle .bar {
@@ -117,7 +122,7 @@ header {
     transition: 0.3s;
 }
 
-/* 3. NAVIGATION MENU STYLING */
+/* 3. NAVIGATION MENU STYLING (Off-canvas setup remains the same) */
 .main-nav {
     position: fixed;
     top: 0;
@@ -157,11 +162,12 @@ header {
 
 /* 4. BUTTON POSITIONING */
 .btn-book {
+    /* Position is handled by the .header-controls wrapper */
     z-index: 10;
 }
 
 /* ---------------------------------------------------- */
-/* --- MAIN CONTENT STYLING --- */
+/* --- MAIN CONTENT STYLING (Unchanged but included) --- */
 /* ---------------------------------------------------- */
 main {
     min-height: calc(100vh - 250px);
@@ -186,8 +192,7 @@ main {
 }
 
 .map-section {
-    /* Removed padding-top for a cleaner look near the hero section */
-    padding: 0px 0; 
+    padding: 0px 0;
     text-align: center;
 }
 
@@ -198,7 +203,7 @@ main {
 /* Required: 100% width embedded Google Map container */
 #google-map-embed-container {
     width: 100%;
-    height: 600px; 
+    height: 600px; /* Define a fixed height for the map container */
     background-color: #333;
     border: 1px solid #D20000;
 }
@@ -210,55 +215,32 @@ main {
 }
 
 /* ---------------------------------------------------- */
-/* --- FOOTER STYLING (MOBILE DEFAULT / STACKED) --- */
+/* --- FOOTER STYLING (Unchanged but included) --- */
 /* ---------------------------------------------------- */
 footer {
     background-color: #111111;
-    padding: 40px 50px 0;
+    padding: 40px 50px 20px;
     border-top: 1px solid #333;
-    /* FIX: Ensure footer itself is a simple block container */
-    display: block; 
-    overflow: hidden; /* Contains potential floats (though Flexbox is used) */
-    width: 100%;
 }
 
-/* Default mobile/stacked layout */
-.footer-primary {
-    /* Set display: block globally for mobile/default stacking */
-    display: block; 
+.footer-content {
+    display: flex;
+    justify-content: space-around;
     padding-bottom: 30px;
 }
 
-/* PARTNERS SECTION STYLING */
-.partners-info {
-    max-width: 400px;
-    /* FIX: Ensure partners section is a block that takes up a whole line (on mobile) */
-    display: block; 
-}
-
-.partner-logos {
+@media (max-width:660px) {
+    
+.footer-content {
     display: flex;
-    gap: 20px;
-    margin-top: 15px;
-    align-items: center;
+    flex-direction: column;
+    justify-content: start;
+    gap: 30px;
+}
 }
 
-.partner-logo {
-    max-width: 100px;
-    height: auto;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-}
-
-.partner-logo:hover {
-    opacity: 1;
-}
-
-/* CONTACT INFO STYLING (Default for mobile) */
-.contact-info {
+.contact-info, .social-links {
     max-width: 300px;
-    /* FIX: Ensure contact info is a block that takes up a whole line (on mobile) */
-    display: block;
 }
 
 .contact-info p {
@@ -266,88 +248,15 @@ footer {
     font-size: 0.9em;
 }
 
-/* FOLLOW US SECTION (Must be a full-width block) */
-.footer-secondary {
-    padding-top: 20px;
-    padding-bottom: 20px; 
-    border-top: 1px solid #333;
-    text-align: center;
-    /* CRITICAL FIX: Ensure it breaks after the primary section */
-    clear: both; 
-    width: 100%; 
-    display: block;
-}
-
-.social-links h3 {
-    margin-bottom: 10px;
-}
-
 .social-links a {
-    margin: 0 10px;
+    margin-right: 15px;
     font-weight: bold;
 }
 
-/* COPYRIGHT SECTION (Must be a full-width block) */
 .copyright {
     text-align: center;
     font-size: 0.8em;
     padding-top: 20px;
-    padding-bottom: 20px; 
     border-top: 1px solid #333;
     color: #AAAAAA;
-    width: 100%; 
-    display: block;
-}
-
-/* ---------------------------------------------------- */
-/* --- DESKTOP LAYOUT (Flexbox side-by-side: > 768px) --- */
-/* ---------------------------------------------------- */
-@media (min-width: 769px) {
-    
-    /* ENABLE DESKTOP LAYOUT: Partners (left) and Contact Info (right) */
-    .footer-primary {
-        /* This overrides the display: block set above for desktop */
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    /* Contact Info (Right) */
-    .contact-info {
-        text-align: right; 
-    }
-    
-    /* Ensure partner logos are left-aligned on desktop */
-    .partner-logos {
-        justify-content: flex-start;
-    }
-}
-
-/* ---------------------------------------------------- */
-/* --- MOBILE LAYOUT (Stacking and Centering: <= 768px) --- */
-/* ---------------------------------------------------- */
-@media (max-width: 768px) {
-    
-    /* Footer: All sections stack vertically */
-    .footer-primary {
-        flex-direction: column;
-        gap: 30px; 
-        padding-bottom: 40px;
-    }
-
-    /* Partners section stacks logos and centers text */
-    .partners-info {
-        max-width: 100%;
-        text-align: center; 
-    }
-    
-    .partner-logos {
-        justify-content: center; /* Center logos on mobile */
-        gap: 30px;
-    }
-
-    /* Contact Info moves to the center */
-    .contact-info {
-        max-width: 100%;
-        text-align: center; 
-    }
 }
