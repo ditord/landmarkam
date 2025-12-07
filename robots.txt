@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://landmark.am/sitemap.xml
